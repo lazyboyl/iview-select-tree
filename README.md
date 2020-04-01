@@ -27,7 +27,11 @@ export default {
 ```
 # 效果
 ## 多选效果
-![avatar](/src/assets/multiple.png)
+![avatar](https://img-blog.csdnimg.cn/2020040110354191.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpbnpoZWZlbmc4OQ==,size_16,color_FFFFFF,t_70)
+## 单选效果
+![avatar](https://img-blog.csdnimg.cn/20200401103643386.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpbnpoZWZlbmc4OQ==,size_16,color_FFFFFF,t_70)
+## 表单验证效果
+![avatar](https://img-blog.csdnimg.cn/20200401104044993.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpbnpoZWZlbmc4OQ==,size_16,color_FFFFFF,t_70)
 # 调用方式
 ``` js
 <selectTree  v-model="val" :treeData="data"></selectTree>
