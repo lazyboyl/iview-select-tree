@@ -19,7 +19,9 @@
         <div style="width: 95%;margin-left: 10px;">
           <Input v-model="queryTreeVal" placeholder="请输入筛选条件"  @on-change="selectTreeChange" />
         </div>
-        <Tree :data="queryData" :multiple="multiple" ref="tree" @on-select-change="selectChange"></Tree>
+        <div style="width: 95%;margin-left: 10px;">
+          <Tree :data="queryData" :multiple="multiple" ref="tree" @on-select-change="selectChange"></Tree>
+        </div>
       </div>
     </div>
   </div>
