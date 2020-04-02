@@ -5,7 +5,7 @@
         <div  @click="clickInputShow" >
           <div v-if="multiple" class="ivu-tag ivu-tag-checked " v-for="(item,index) in multipleShowVal" :key="item">
             <span class="ivu-tag-text ">{{item}}</span>
-            <i class="ivu-icon ivu-icon-ios-close" @click="removeVal(index)"></i>
+            <i class="ivu-icon ivu-icon-ios-close" @click.stop="removeVal(index)"></i>
           </div>
           <span v-if="!multiple && queryVal!=''" class="ivu-select-selected-value">{{queryVal}}</span>
           <span v-if="multipleHideVal.length === 0 && multiple " class="ivu-select-placeholder" style="">请选择</span>
@@ -207,11 +207,7 @@
       },
       // 点击图标的时候展示树形菜单
       clickInputShow () {
-        if (!this.multiple) {
           this.showSelectTree()
-        } else if (this.iconVal !== 'ios-arrow-up') {
-          this.showSelectTree()
-        }
       },
       showSelectTree () {
         console.log('this.showTree=>' + this.showTree)
