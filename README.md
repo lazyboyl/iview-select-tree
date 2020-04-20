@@ -44,6 +44,10 @@ export default {
 | treeData | 下拉树的数据 | Array |  空 |
 | multiple | 是否允许多选 | Boolean |  false |
 | value | 指定选中项目的 value 值，可以使用 v-model 双向绑定数据。单选时只接受 String 或 Number，多选时只接受 Array | String 或 Number 或 Array |  空 |
+# 方法说明
+| 方法 | 说明 | 返回值 |
+| :-----| ---- | :----: |
+| on-select-change | 下拉框选中的时候触发的事件 | hideVal,showVal |
 
 ## treeData的数据格式
 ``` json

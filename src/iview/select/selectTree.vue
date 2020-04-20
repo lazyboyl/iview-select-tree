@@ -183,27 +183,35 @@
         }
       },
       selectChange (obj) {
-        if (this.multiple) {
-          this.multipleShowVal = []
-          this.multipleHideVal = []
-          for (let i = 0; i < obj.length; i++) {
-            this.multipleShowVal.push(obj[i].title)
-            this.multipleHideVal.push(obj[i].value)
-          }
-          this.$emit('input', this.multipleHideVal)
-        } else {
-          if (obj.length === 0) {
-            this.queryVal = ''
-            this.hideValue = ''
-            this.$emit('input', '')
+          let hideVal
+          let showVal
+          if (this.multiple) {
+              this.multipleShowVal = []
+              this.multipleHideVal = []
+              for (let i = 0; i < obj.length; i++) {
+                  this.multipleShowVal.push(obj[i].title)
+                  this.multipleHideVal.push(obj[i].value)
+              }
+              this.$emit('input', this.multipleHideVal)
+              hideVal = this.multipleHideVal
+              showVal = this.multipleShowVal
           } else {
-            this.queryVal = obj[0].title
-            this.hideValue = obj[0].value
-            this.$emit('input', obj[0].value)
+              if (obj.length === 0) {
+                  this.queryVal = ''
+                  this.hideValue = ''
+                  this.$emit('input', '')
+              } else {
+                  this.queryVal = obj[0].title
+                  this.hideValue = obj[0].value
+                  this.$emit('input', obj[0].value)
+              }
+              this.showTree = false
+              this.iconVal = 'ios-arrow-down'
+              hideVal = this.hideValue
+              showVal = this.queryVal
+              this.$emit("on-select-change",  this.queryVal,this.hideValue);
           }
-          this.showTree = false
-          this.iconVal = 'ios-arrow-down'
-        }
+          this.$emit("on-select-change", hideVal, showVal);
       },
       // 点击图标的时候展示树形菜单
       clickInputShow () {
