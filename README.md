@@ -67,6 +67,8 @@ export default {
 	}]
 }
 ```
+## demo说明的例子
+[iview下拉菜单树的iview-select-tree的使用](https://blog.csdn.net/linzhefeng89/article/details/105245236)
 ## github
 如果觉得写的可以就给一个star吧，如果那里有bug大家可以直接提issue
 [https://github.com/lazyboyl/iview-select-tree](https://github.com/lazyboyl/iview-select-tree)
