@@ -37,13 +37,14 @@ export default {
 <selectTree  v-model="val" :treeData="data"></selectTree>
 ```
 # 参数说明
-| 属性 | 说明 | 类型 | 默认 |
-| :-----| ---- | :----: | :----: |
-| filterable | 是否支持搜索 | Boolean |  false |
-| clearable | 是否可以清空选项，只在单选时有效 | Boolean |  false |
-| treeData | 下拉树的数据 | Array |  空 |
-| multiple | 是否允许多选 | Boolean |  false |
-| value | 指定选中项目的 value 值，可以使用 v-model 双向绑定数据。单选时只接受 String 或 Number，多选时只接受 Array | String 或 Number 或 Array |  空 |
+| 属性 | 说明 | 类型 | 默认 | 版本 |
+| :-----| ---- | :----: | :----: | :----: |
+| filterable | 是否支持搜索 | Boolean |  false | 1.0.6 |
+| clearable | 是否可以清空选项，只在单选时有效 | Boolean |  false | 1.0.6 |
+| treeData | 下拉树的数据 | Array |  空 | 1.0.6 |
+| multiple | 是否允许多选 | Boolean |  false | 1.0.6 |
+| value | 指定选中项目的 value 值，可以使用 v-model 双向绑定数据。单选时只接受 String 或 Number，多选时只接受 Array | String 或 Number 或 Array |  空 | 1.0.6 |
+| showQuery | 是否展示下拉的搜索框 |  true | 1.0.8 |
 # 方法说明
 | 方法 | 说明 | 返回值 |
 | :-----| ---- | :----: |

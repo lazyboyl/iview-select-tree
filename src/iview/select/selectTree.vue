@@ -16,7 +16,7 @@
       </div>
       <div v-show="showTree" class="ivu-select-dropdown"
            style="max-height: 200px;overflow-y:scroll;z-index:9999;width:100%;" >
-        <div style="width: 95%;margin-left: 10px;">
+        <div style="width: 95%;margin-left: 10px;" v-show="showQuery">
           <Input v-model="queryTreeVal" placeholder="请输入筛选条件"  @on-change="selectTreeChange" />
         </div>
         <div style="width: 95%;margin-left: 10px;">
@@ -45,6 +45,10 @@
       clearable: {
         type: Boolean,
         default: false
+      },
+      showQuery: {
+          type: Boolean,
+          default: true
       }
     },
     data () {
