@@ -73,6 +73,9 @@ export default {
 ## github
 如果觉得写的可以就给一个star吧，如果那里有bug大家可以直接提issue
 [https://github.com/lazyboyl/iview-select-tree](https://github.com/lazyboyl/iview-select-tree)
+### 版本更新
+#### 1.0.9
+- 【新增】新增由@zhangjiwei14提出的[#issues3](https://github.com/lazyboyl/iview-select-tree/issues/3)的需求场景。
 
 
 
