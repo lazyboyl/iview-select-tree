@@ -1,6 +1,6 @@
 <template>
   <div class="ivu-select ivu-select-default" >
-    <div tabindex="0" class="ivu-select-selection ivu-form-item-content">
+    <div tabindex="0" class="ivu-select-selection ivu-form-item-content" >
       <div @mouseover="mouseover" @mouseleave="mouseleave">
         <div  @click="clickInputShow" >
           <div v-if="multiple" class="ivu-tag ivu-tag-checked " v-for="(item,index) in multipleShowVal" :key="item">
@@ -49,6 +49,10 @@
             showQuery: {
                 type: Boolean,
                 default: true
+            },
+            disabled: {
+                type: Boolean,
+                default: true
             }
         },
         data () {
@@ -69,10 +73,12 @@
         },
         methods: {
             clickIcon () {
-                if (this.iconVal === 'ios-close-circle') {
-                    this.clearVal()
-                } else {
-                    this.showSelectTree()
+                if(this.disabled){
+                    if (this.iconVal === 'ios-close-circle') {
+                        this.clearVal()
+                    } else {
+                        this.showSelectTree()
+                    }
                 }
             },
             pickTree (val) {
@@ -160,16 +166,18 @@
                 }
             },
             clearVal () {
-                if (this.clearable && !this.multiple && this.iconVal === 'ios-close-circle') {
-                    this.pickTree(this.hideValue)
-                    this.queryVal = ''
-                    this.hideValue = ''
-                    if (this.showTree) {
-                        this.iconVal = 'ios-arrow-up'
-                    } else {
-                        this.iconVal = 'ios-arrow-down'
+                if(this.disabled){
+                    if (this.clearable && !this.multiple && this.iconVal === 'ios-close-circle') {
+                        this.pickTree(this.hideValue)
+                        this.queryVal = ''
+                        this.hideValue = ''
+                        if (this.showTree) {
+                            this.iconVal = 'ios-arrow-up'
+                        } else {
+                            this.iconVal = 'ios-arrow-down'
+                        }
+                        this.$emit('input', '')
                     }
-                    this.$emit('input', '')
                 }
             },
             mouseover () {
@@ -219,7 +227,9 @@
             },
             // 点击图标的时候展示树形菜单
             clickInputShow () {
-                this.showSelectTree()
+                if(this.disabled){
+                    this.showSelectTree()
+                }
             },
             showSelectTree () {
                 if (this.showTree) {
@@ -241,17 +251,19 @@
             },
             // 多选模式的时候删除节点的数据
             removeVal (index) {
-                for (let i = 0; i < this.showData.length; i++) {
-                    if (this.showData[i].value === this.multipleHideVal[index]) {
-                        this.hideValue = this.treeData[i].value
-                        this.queryVal = this.treeData[i].title
-                        this.showData[i].selected = false
-                    } else if (this.showData[i].children !== undefined) {
-                        this.recursionRemoveTreeData(this.showData[i].children, this.multipleHideVal[index])
+                if(this.disabled){
+                    for (let i = 0; i < this.showData.length; i++) {
+                        if (this.showData[i].value === this.multipleHideVal[index]) {
+                            this.hideValue = this.treeData[i].value
+                            this.queryVal = this.treeData[i].title
+                            this.showData[i].selected = false
+                        } else if (this.showData[i].children !== undefined) {
+                            this.recursionRemoveTreeData(this.showData[i].children, this.multipleHideVal[index])
+                        }
                     }
+                    this.multipleShowVal.splice(index, 1)
+                    this.multipleHideVal.splice(index, 1)
                 }
-                this.multipleShowVal.splice(index, 1)
-                this.multipleHideVal.splice(index, 1)
             },
             recursionRemoveTreeData (data, val) {
                 for (let i = 0; i < data.length; i++) {

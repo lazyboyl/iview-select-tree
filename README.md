@@ -45,6 +45,8 @@ export default {
 | multiple | 是否允许多选 | Boolean |  false | 1.0.6 |
 | value | 指定选中项目的 value 值，可以使用 v-model 双向绑定数据。单选时只接受 String 或 Number，多选时只接受 Array | String 或 Number 或 Array |  空 | 1.0.6 |
 | showQuery | 是否展示下拉的搜索框 |  true | 1.0.8 |
+| disabled | 是否禁用或启用当前的下拉框 |  true | 1.0.10 |
+
 # 方法说明
 | 方法 | 说明 | 返回值 |
 | :-----| ---- | :----: |
@@ -74,6 +76,8 @@ export default {
 如果觉得写的可以就给一个star吧，如果那里有bug大家可以直接提issue
 [https://github.com/lazyboyl/iview-select-tree](https://github.com/lazyboyl/iview-select-tree)
 ### 版本更新
+#### 1.0.10
+- 【新增】新增由@GyPsyEyes提出的[#issues4](https://github.com/lazyboyl/iview-select-tree/issues/4)的disabled禁用和启用的需求场景。
 #### 1.0.9
 - 【新增】新增由@zhangjiwei14提出的[#issues3](https://github.com/lazyboyl/iview-select-tree/issues/3)的需求场景。
 
