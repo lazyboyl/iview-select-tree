@@ -1,7 +1,7 @@
 {
   "name": "iview-select-tree",
   "description": "基于iview的下拉菜单树的实现",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "author": "linzef",
   "license": "MIT",
   "private": false,

@@ -76,6 +76,8 @@ export default {
 如果觉得写的可以就给一个star吧，如果那里有bug大家可以直接提issue
 [https://github.com/lazyboyl/iview-select-tree](https://github.com/lazyboyl/iview-select-tree)
 ### 版本更新
+#### 1.0.11
+- 【BUG】修复加载的数据无法回显的问题
 #### 1.0.10
 - 【新增】新增由@GyPsyEyes提出的[#issues4](https://github.com/lazyboyl/iview-select-tree/issues/4)的disabled禁用和启用的需求场景。
 #### 1.0.9

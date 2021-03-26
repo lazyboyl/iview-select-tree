@@ -73,7 +73,7 @@
         },
         methods: {
             clickIcon () {
-                if(this.disabled){
+                if (this.disabled) {
                     if (this.iconVal === 'ios-close-circle') {
                         this.clearVal()
                     } else {
@@ -166,7 +166,7 @@
                 }
             },
             clearVal () {
-                if(this.disabled){
+                if (this.disabled) {
                     if (this.clearable && !this.multiple && this.iconVal === 'ios-close-circle') {
                         this.pickTree(this.hideValue)
                         this.queryVal = ''
@@ -221,13 +221,13 @@
                     this.iconVal = 'ios-arrow-down'
                     hideVal = this.hideValue
                     showVal = this.queryVal
-                    this.$emit("on-select-change",  this.queryVal,this.hideValue);
+                    this.$emit('on-select-change', this.queryVal, this.hideValue)
                 }
-                this.$emit("on-select-change", hideVal, showVal);
+                this.$emit('on-select-change', hideVal, showVal)
             },
             // 点击图标的时候展示树形菜单
             clickInputShow () {
-                if(this.disabled){
+                if (this.disabled) {
                     this.showSelectTree()
                 }
             },
@@ -251,7 +251,7 @@
             },
             // 多选模式的时候删除节点的数据
             removeVal (index) {
-                if(this.disabled){
+                if (this.disabled) {
                     for (let i = 0; i < this.showData.length; i++) {
                         if (this.showData[i].value === this.multipleHideVal[index]) {
                             this.hideValue = this.treeData[i].value
@@ -297,7 +297,6 @@
                 }
             },
             initQueryVal () {
-                this.$emit('input', '')
                 for (let i = 0; i < this.cloneData.length; i++) {
                     if (this.cloneData[i].value === this.value) {
                         this.hideValue = this.cloneData[i].value
@@ -329,39 +328,40 @@
                     }
                 }
             },
-            removeShowVal(data,val,showVal,hideVal){
-                for(let j = 0; j < data.length; j++){
-                    if(data[j].value === val){
+            removeShowVal (data, val, showVal, hideVal) {
+                for (let j = 0; j < data.length; j++) {
+                    if (data[j].value === val) {
                         showVal.push(data[j].title)
                         hideVal.push(data[j].value)
                         break
-                    } else if(data[j].children!=undefined && data[j].children.length>0){
-                        this.removeShowVal(data[j].children,val,showVal,hideVal)
+                    } else if (data[j].children !== undefined && data[j].children.length > 0) {
+                        this.removeShowVal(data[j].children, val, showVal, hideVal)
                     }
                 }
             }
         },
-        watch:{
-            treeData(val){
+        watch: {
+            treeData (val) {
                 this.cloneData = JSON.parse(JSON.stringify(val))
                 this.showData = JSON.parse(JSON.stringify(this.cloneData))
                 this.queryData = this.showData
                 let multipleHideValNew = []
                 let multipleShowValNew = []
                 if (this.multiple) {
-                    for(let i =0;i<this.multipleHideVal.length;i++){
-                        this.removeShowVal(this.showData,this.multipleHideVal[i],multipleShowValNew,multipleHideValNew);
+                    for (let i = 0; i < this.multipleHideVal.length; i++) {
+                        this.removeShowVal(this.showData, this.multipleHideVal[i], multipleShowValNew, multipleHideValNew)
                     }
                     this.multipleHideVal = multipleHideValNew
                     this.multipleShowVal = multipleShowValNew
+                    this.initQueryMultiple()
                 } else {
-                    this.removeShowVal(this.showData,this.hideValue,multipleShowValNew,multipleHideValNew);
-                    if(multipleHideValNew.length === 0){
+                    this.removeShowVal(this.showData, this.hideValue, multipleShowValNew, multipleHideValNew)
+                    if (multipleHideValNew.length === 0) {
                         this.pickTree(this.hideValue)
                         this.queryVal = ''
                         this.hideValue = ''
-                        this.$emit('input', '')
                     }
+                    this.initQueryVal()
                 }
             }
         },
