@@ -4,7 +4,7 @@
 
 # 安装
 ``` js
-npm install iview-tree-select --save
+npm install iview-select-tree --save
 ```
 # 引入
 ``` js
@@ -76,6 +76,8 @@ export default {
 如果觉得写的可以就给一个star吧，如果那里有bug大家可以直接提issue
 [https://github.com/lazyboyl/iview-select-tree](https://github.com/lazyboyl/iview-select-tree)
 ### 版本更新
+#### 1.0.12
+- 【BUG】修复无法下载问题
 #### 1.0.11
 - 【BUG】修复加载的数据无法回显的问题
 #### 1.0.10
