@@ -1,12 +1,14 @@
 <template>
-  <div class="ivu-select ivu-select-default" >
+  <div v-click-outside="onClickoutside" class="ivu-select ivu-select-default" >
     <div tabindex="0" class="ivu-select-selection ivu-form-item-content" >
       <div @mouseover="mouseover" @mouseleave="mouseleave">
         <div  @click="clickInputShow" >
-          <div v-if="multiple" class="ivu-tag ivu-tag-checked " v-for="(item,index) in multipleShowVal" :key="item">
-            <span class="ivu-tag-text ">{{item}}</span>
-            <i class="ivu-icon ivu-icon-ios-close" @click.stop="removeVal(index)"></i>
-          </div>
+          <template v-if="multiple">
+            <div class="ivu-tag ivu-tag-checked " v-for="(item,index) in multipleShowVal" :key="item">
+              <span class="ivu-tag-text ">{{item}}</span>
+              <i class="ivu-icon ivu-icon-ios-close" @click.stop="removeVal(index)"></i>
+            </div>
+          </template>
           <span v-if="!multiple && queryVal!=''" class="ivu-select-selected-value">{{queryVal}}</span>
           <span v-if="multipleHideVal.length === 0 && multiple " class="ivu-select-placeholder" style="">请选择</span>
           <span v-if="value === '' && !multiple " class="ivu-select-placeholder" style="">请选择</span>
@@ -27,6 +29,7 @@
   </div>
 </template>
 <script>
+    import clickOutside from 'iview/src/directives/clickoutside.js'
     export default {
         name: 'selectTree',
         props: {
@@ -55,6 +58,7 @@
                 default: true
             }
         },
+        directives: { clickOutside },
         data () {
             return {
                 queryVal: '',
@@ -72,6 +76,10 @@
             }
         },
         methods: {
+            onClickoutside(e){
+                this.showTree = false
+                this.iconVal = 'ios-arrow-up'
+            },
             clickIcon () {
                 if (this.disabled) {
                     if (this.iconVal === 'ios-close-circle') {
