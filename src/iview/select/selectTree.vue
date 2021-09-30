@@ -1,5 +1,5 @@
 <template>
-  <div class="ivu-select ivu-select-default" >
+  <div v-click-outside="onClickoutside" class="ivu-select ivu-select-default" >
     <div tabindex="0" class="ivu-select-selection ivu-form-item-content" >
       <div @mouseover="mouseover" @mouseleave="mouseleave">
         <div  @click="clickInputShow" >
@@ -27,6 +27,7 @@
   </div>
 </template>
 <script>
+    import clickOutside from 'iview/src/directives/clickoutside.js'
     export default {
         name: 'selectTree',
         props: {
@@ -55,6 +56,7 @@
                 default: true
             }
         },
+        directives: { clickOutside },
         data () {
             return {
                 queryVal: '',
@@ -72,6 +74,10 @@
             }
         },
         methods: {
+            onClickoutside(e){
+                this.showTree = false
+                this.iconVal = 'ios-arrow-up'
+            },
             clickIcon () {
                 if (this.disabled) {
                     if (this.iconVal === 'ios-close-circle') {
