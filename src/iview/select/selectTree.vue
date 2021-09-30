@@ -3,10 +3,12 @@
     <div tabindex="0" class="ivu-select-selection ivu-form-item-content" >
       <div @mouseover="mouseover" @mouseleave="mouseleave">
         <div  @click="clickInputShow" >
-          <div v-if="multiple" class="ivu-tag ivu-tag-checked " v-for="(item,index) in multipleShowVal" :key="item">
-            <span class="ivu-tag-text ">{{item}}</span>
-            <i class="ivu-icon ivu-icon-ios-close" @click.stop="removeVal(index)"></i>
-          </div>
+          <template v-if="multiple">
+            <div class="ivu-tag ivu-tag-checked " v-for="(item,index) in multipleShowVal" :key="item">
+              <span class="ivu-tag-text ">{{item}}</span>
+              <i class="ivu-icon ivu-icon-ios-close" @click.stop="removeVal(index)"></i>
+            </div>
+          </template>
           <span v-if="!multiple && queryVal!=''" class="ivu-select-selected-value">{{queryVal}}</span>
           <span v-if="multipleHideVal.length === 0 && multiple " class="ivu-select-placeholder" style="">请选择</span>
           <span v-if="value === '' && !multiple " class="ivu-select-placeholder" style="">请选择</span>
