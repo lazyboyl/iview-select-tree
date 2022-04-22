@@ -1,7 +1,7 @@
 {
   "name": "iview-select-tree",
   "description": "基于iview的下拉菜单树的实现",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "author": "linzef",
   "license": "MIT",
   "private": false,
@@ -11,7 +11,7 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
-    "iview": "^3.4.0",
+    "view-design": "^4.7.0",
     "vue": "^2.5.11"
   },
   "browserslist": [

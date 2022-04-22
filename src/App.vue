@@ -5,41 +5,41 @@
 </template>
 
 <script>
-    import selectTree from './iview/select/selectTree'
+import selectTree from './iview/select/selectTree'
 
-    export default {
-        name: 'app',
-        components: {
-            selectTree
-        },
-        data() {
-            return {
-                queryVal3: '',
-                treeData: [
-                    {
-                        value: '001',
-                        label: '北京',
-                        children: [
-                            {
-                                value: '0011',
-                                label: '故宫',
-                                disable: true
-                            },
-                            {
-                                value: '0012',
-                                label: '天坛'
-                            }
-                        ]
-                    }
-                ]
+export default {
+  name: 'app',
+  components: {
+    selectTree
+  },
+  data() {
+    return {
+      queryVal3: '',
+      treeData: [
+        {
+          value: '001',
+          title: '北京',
+          children: [
+            {
+              value: '0011',
+              title: '故宫',
+              disable: true
+            },
+            {
+              value: '0012',
+              title: '天坛'
             }
-        },
-        methods: {
-            selectChange(multipleShowVal, multipleHideVal) {
-                console.log(multipleShowVal, multipleHideVal)
-            }
+          ]
         }
+      ]
     }
+  },
+  methods: {
+    selectChange(multipleShowVal, multipleHideVal) {
+      console.log(multipleShowVal, multipleHideVal)
+    }
+  }
+}
 </script>
 
 <style lang="scss">

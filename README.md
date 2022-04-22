@@ -76,6 +76,9 @@ export default {
 如果觉得写的可以就给一个star吧，如果那里有bug大家可以直接提issue
 [https://github.com/lazyboyl/iview-select-tree](https://github.com/lazyboyl/iview-select-tree)
 ### 版本更新
+#### 1.0.13
+- 修复部分反馈的BUG
+- 支持view-design-4.7版本
 #### 1.0.12
 - 【BUG】修复无法下载问题
 #### 1.0.11
