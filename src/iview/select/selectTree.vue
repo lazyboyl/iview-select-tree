@@ -15,7 +15,7 @@
         <i :class="'ivu-icon ivu-icon-' +iconVal+ ' ivu-select-arrow'" @click="clickIcon"></i>
       </div>
       <div v-show="showTree" class="ivu-select-dropdown"
-           style="max-height: 200px;overflow-y:scroll;z-index:9999;width:100%;" >
+           style="max-height: 200px;overflow-y:scroll;z-index:9999;width:100%;height:auto" >
         <div style="width: 95%;margin-left: 10px;" v-show="showQuery">
           <Input v-model="queryTreeVal" placeholder="请输入筛选条件"  @on-change="selectTreeChange" />
         </div>
